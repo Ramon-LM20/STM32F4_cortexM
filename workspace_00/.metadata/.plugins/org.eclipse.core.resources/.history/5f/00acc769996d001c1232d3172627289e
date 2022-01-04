@@ -1,0 +1,22 @@
+//#include "stm32F4xx.h"
+#include "stm32f401xe.h"
+
+int config(void);
+
+int init = 0;
+
+int main(void)
+{
+
+	init = config();
+
+	while(config)
+	{
+
+	}
+}
+
+int config()
+{
+	return 1;
+}

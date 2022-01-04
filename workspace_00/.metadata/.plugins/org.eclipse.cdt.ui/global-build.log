@@ -1,0 +1,28 @@
+22:00:34 **** Incremental Build of configuration Debug for project gpio_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -DSTM32F401xE -c -I../Inc -I"D:/BareMetal_Development/workspace_00/F4_chip_headers/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/BareMetal_Development/workspace_00/F4_chip_headers/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:14:8: warning: the address of 'config' will always evaluate as 'true' [-Waddress]
+   14 |  while(config)
+      |        ^~~~~~
+arm-none-eabi-gcc -o "gpio_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\BareMetal_Development\workspace_00\gpio_drivers\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gpio_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gpio_drivers.elf
+ 
+arm-none-eabi-size   gpio_drivers.elf 
+arm-none-eabi-objdump -h -S  gpio_drivers.elf  > "gpio_drivers.list"
+arm-none-eabi-objcopy  -O binary  gpio_drivers.elf  "gpio_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+    816	      8	   1568	   2392	    958	gpio_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: gpio_drivers.bin
+Finished building: gpio_drivers.list
+ 
+ 
+22:00:42 **** Incremental Build of configuration Debug for project gpio_drivers ****
+make -j8 all 
+arm-none-eabi-size   gpio_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    816	      8	   1568	   2392	    958	gpio_drivers.elf
+Finished building: default.size.stdout
+ 

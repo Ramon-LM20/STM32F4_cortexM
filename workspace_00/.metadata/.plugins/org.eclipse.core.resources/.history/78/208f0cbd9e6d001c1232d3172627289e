@@ -1,0 +1,40 @@
+#include "stm32f401xe.h"
+
+
+
+int config(void);
+
+int init = 0;
+
+int main(void)
+{
+
+	init = config();
+
+	while(config)
+	{
+		//GPIOA->ODR ^=(1U<<5); // using the output data register (ODR) to toggle PIN A5
+		//for(int i=0;i<100000;i++){}
+
+		GPIOA->BSRR |= (1U<<5);
+		for(int i=0;i<100000;i++){}
+
+		GPIOA->BSRR |= (1U<<21);
+		for(int i=0;i<100000;i++){}
+	}
+
+	return 0;
+}
+
+int config()
+{
+
+	/* 1. Enables clock access to GPIOA */
+	RCC->AHB1ENR |= (1U<<0);
+
+	/* 2. Set PA5 as output */
+	GPIOA->MODER |= (1U<<10);
+	GPIOA->MODER &=~(1U<<11);
+
+	return 1;
+}
